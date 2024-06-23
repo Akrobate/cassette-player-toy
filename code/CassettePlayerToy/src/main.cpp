@@ -18,6 +18,10 @@
 #define BUTTON_VOLUME_UP    18
 
 
+#define CNY70_0  19
+
+
+
 void printDetail(uint8_t type, int value);
 
 
@@ -37,6 +41,10 @@ boolean is_playing = 0;
 
 unsigned int volume = 10;
 
+int cny70_0 = 0;
+
+
+
 void setup() {
 
     pinMode(LED, OUTPUT);
@@ -55,6 +63,12 @@ void setup() {
     }
     Serial.println(F("DFPlayer Mini online."));
     myDFPlayer.volume(volume);
+
+
+    // CNY70
+
+    pinMode(CNY70_0, INPUT_PULLUP);
+    // pinMode(CNY70_0, INPUT);
 
     
 }
@@ -129,7 +143,8 @@ void loop() {
         Serial.println(myDFPlayer.readCurrentFileNumber());
     }
 
-    if (millis() - timer > 3000) {
+
+    if (millis() - timer > 300000) {
         timer = millis();
 
         Serial.print(F("Playing now: "));
@@ -153,6 +168,12 @@ void loop() {
     // delay(100);                      // wait for a second
     // digitalWrite(LED, LOW);   // turn the LED off by making the voltage LOW
     // delay(100);                      // wait for a second
+
+
+    cny70_0 = analogRead(CNY70_0);
+    Serial.print(F("CNY Value : "));
+    Serial.println(cny70_0);
+
 }
 
 
