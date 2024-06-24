@@ -60,16 +60,16 @@ module cassetteCasePiece(
                 cassette_case_z_size - cassette_z_size
             ]
         )
-        roundedPane(
-            [
-                cassette_x_size + (cassette_case_x_y_margin * 2),
-                cassette_y_size + (cassette_case_x_y_margin * 2),
-                cassette_z_size + 1
-            ],
-            cassette_round_radius,
-            cassette_round_radius,
-            $fn=100
-        );
+            roundedPane(
+                [
+                    cassette_x_size + (cassette_case_x_y_margin * 2),
+                    cassette_y_size + (cassette_case_x_y_margin * 2),
+                    cassette_z_size + 1
+                ],
+                cassette_round_radius,
+                cassette_round_radius,
+                $fn=100
+            );
 
 
         // grip enveloppe
@@ -152,4 +152,65 @@ module cassetteCasePiece(
 }
 
 
+
+
+module cassetteCaseThrowsEnveloppe(
+    cassette_case_x_size = cassette_case_x_size,
+    cassette_case_y_size = cassette_case_y_size,
+    cassette_case_z_size = cassette_case_z_size,
+    throws_margin = cassette_case_throws_margin,
+    throws_diameter = cassette_case_throws_diameter,
+
+    embed_x_size = cassette_case_embed_x_size,
+    embed_y_size = cassette_case_embed_y_size,
+    embed_z_size = cassette_case_embed_z_size,
+
+    cassette_z_size = cassette_z_size,
+    embed_round_radius = cassette_case_embed_round_radius,
+
+    embed_throw_margin = cassette_case_embed_throw_margin,
+
+    $fn = 100
+) {
+
+
+    // Throws
+    translate([0, 0, -cassette_case_z_size / 2])
+        forEachCoord([
+            [throws_margin, throws_margin],
+            [cassette_case_x_size - throws_margin, throws_margin],
+            [throws_margin, cassette_case_y_size - throws_margin],
+            [cassette_case_x_size - throws_margin, cassette_case_y_size - throws_margin,],
+        ])
+            cylinder(h = cassette_case_z_size * 2, d = throws_diameter, $fn = $fn);
+
+
+
+    translate(
+        [
+            (cassette_case_x_size - embed_x_size) / 2 - cassette_case_embed_throw_margin,
+            (cassette_case_y_size - embed_y_size) / 2 - cassette_case_embed_throw_margin,
+            -cassette_case_z_size / 2
+        ]
+    )
+        roundedPane(
+            [
+                embed_x_size + cassette_case_embed_throw_margin * 2,
+                embed_y_size + cassette_case_embed_throw_margin * 2,
+                cassette_case_z_size * 2
+            ],
+            embed_round_radius + cassette_case_embed_throw_margin,
+            embed_round_radius + cassette_case_embed_throw_margin,
+            $fn=100
+        );
+}
+
+
+
+
+
+
 cassetteCasePiece();
+
+
+#cassetteCaseThrowsEnveloppe();

@@ -2,8 +2,12 @@ use <./subpieces/rounded-pane.scad>
 
 use <./../libraries/commons.scad>
 use <./../libraries/electronics.scad>
+use <./cassette-case-piece.scad>
+
 
 include <./../configurations/global.scad>
+
+
 
 
 /**
@@ -21,6 +25,9 @@ module facadeFrontPiece(
     throws_margin = facade_throws_margin,
     round_edges_radius = facade_front_round_edges_radius,
     throws_diameter = housing_facades_throws_diameter,
+
+    facade_cassette_case_coords = facade_cassette_case_coords,
+    facade_speaker_40mm_coords = facade_speaker_40mm_coords,
     $fn = facade_fn
 ) {
     echo(str("facadeFrontPiece ", "x_size: ", x_size, " y_size: ", y_size, " z_size: ", z_size));
@@ -44,7 +51,28 @@ module facadeFrontPiece(
             ])
                 cylinder(h = z_size * 2, d = throws_diameter, $fn = $fn);
 
+
+        translate(
+            [
+                facade_cassette_case_coords[0],
+                facade_cassette_case_coords[1]
+            ]
+        )
+            cassetteCaseThrowsEnveloppe();
+
+        translate(
+            [
+                facade_speaker_40mm_coords[0],
+                facade_speaker_40mm_coords[1],
+                -z_size / 2
+            ]
+        )
+            cylinder(h = z_size * 2, d = 40, $fn = $fn);
+
     
+
+
+
 
     }
 }
