@@ -1,53 +1,23 @@
-
-use <./assets/cny70.scad>
+include <./configurations/global.scad>
 
 use <./libraries/electronics.scad>
 
-use <./pieces/subpieces/breadboard.scad>
-use <./pieces/cassette.scad>
+use <./pieces/cassette-piece.scad>
+use <./pieces/cassette-case-piece.scad>
 
+use <./components/mother-board-component.scad>
 
+translate([0,0,10])
+    cassetteCasePiece();
 
+motherBoardComponent();
 
-breadboard(19, 20, draw_throws = false, $fn=20);
+translate(
+    [
+        (cassette_case_x_size - cassette_x_size) / 2,
+        (cassette_case_y_size - cassette_y_size) / 2,
+        10 + 4
+    ]
+)
+    cassettePiece();
 
-
-
-module cny70set() {
-    translateBreadboard(0, 0, 0)
-        cny70();
-
-    translateBreadboard(3, 0, 0)
-        cny70();
-
-    translateBreadboard(6, 0, 0)
-        cny70();
-
-    translateBreadboard(9, 0, 0)
-        cny70();
-}
-
-
-translateBreadboard(5, 5, 1.5)
-    cny70set();
-
-
-translate([0, 0, 1.51])
-    difference() {
-        #cube([
-            getSizeFromPointCount(19),
-            getSizeFromPointCount(10),
-            7
-        ]);
-
-
-        translate([getSizeFromPointCount(4) - 2.23, getSizeFromPointCount(4) - 2.23, -1])
-            cube([
-                getSizeFromPointCount(9) + 2.23 * 2,
-                getSizeFromPointCount(0) + 2.23 * 2,
-                9
-            ]);
-    }
-
-*translate([0, 0, 20])
-    cassette();

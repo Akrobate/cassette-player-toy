@@ -1,3 +1,5 @@
+// gold_number = 1.618;
+
 housing_facades_throws_diameter = 3.8;
 
 // external size
@@ -23,3 +25,39 @@ facade_fn = 100;
 insert_throw_diameter = 4.2;
 insert_throw_length = 6 + 2;
 
+
+// mother board
+mother_board_cny70set_x_point_coord = 10;
+mother_board_cny70set_y_point_coord = 7;
+
+
+
+// Cassette
+cassette_x_size = 50;
+cassette_y_size = 31;
+cassette_z_size = 4;
+cassette_round_radius = 4;
+
+// Cassette case
+cassette_case_x_size = 76.2;
+cassette_case_y_size = 55.88;
+cassette_case_z_size = 8;
+cassette_case_round_radius = 1;
+
+cassette_case_x_y_margin = 0.75;
+
+cassette_case_embed_x_size = 62;
+cassette_case_embed_y_size = 42;
+cassette_case_embed_z_size = 4;
+cassette_case_embed_offsets = 10;
+cassette_case_embed_round_radius = 6;
+
+
+cassette_case_throws_margin = 2.54 * 2;
+cassette_case_throws_diameter = 3;
+cassette_case_grip_enveloppe_diameter = 15;
+cassette_case_grip_enveloppe_offset = 3;
+
+cassette_case_cny70set_x_point_coord = mother_board_cny70set_x_point_coord;
+cassette_case_cny70set_y_point_coord = mother_board_cny70set_y_point_coord;
+cassette_case_cny70set_x_y_margin = 0.5;

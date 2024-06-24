@@ -1,4 +1,4 @@
-use <../../libraries/electronics.scad>
+use <./electronics.scad>
 
 /**
  * breadboard
