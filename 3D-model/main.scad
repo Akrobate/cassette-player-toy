@@ -1,5 +1,7 @@
 include <./configurations/global.scad>
 
+use <./assets/on-off-button/on-off-button.scad>
+
 use <./libraries/electronics.scad>
 use <./libraries/breadboard.scad>
 
@@ -8,16 +10,25 @@ use <./pieces/cassette-piece.scad>
 use <./pieces/cassette-case-piece.scad>
 use <./pieces/bolt-join-mother-board-piece.scad>
 
-
-
-
 use <./components/mother-board-component.scad>
 use <./components/housing-component.scad>
 
 
 housingComponent();
 
+translate([40, 13]) {
+    translate([0, 0, case_external_z_size ])
+        onOffButton();
 
+    translate([20, 0, case_external_z_size ])
+        onOffButton();
+
+    translate([40, 0, case_external_z_size])
+        onOffButton();
+
+    translate([60, 0, case_external_z_size])
+        onOffButton();
+}
 
 translate(
     [

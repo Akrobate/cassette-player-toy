@@ -73,6 +73,9 @@ bolt_join_fn = 200;
 
 
 
+facade_top_on_off_button_throw_diameter = 12.8;
+
+
 facade_cassette_case_coords = [
     30 + 21,
     4.8 + 16,
