@@ -3,8 +3,8 @@
 housing_facades_throws_diameter = 3.8;
 
 // external size
-case_external_x_size = 140;
-case_external_y_size = 90;
+case_external_x_size = 165;
+case_external_y_size = 92;
 case_external_z_size = 38;
 case_external_panes_thickness = 4.8;
 
@@ -72,16 +72,50 @@ bolt_join_mother_board_height = 8.5;
 bolt_join_fn = 200;
 
 
-
+// speaker facade
+speaker_facade_x_size = 50;
+speaker_facade_y_size = cassette_case_y_size - cassette_case_throws_margin * 2 + 6;
+speaker_facade_z_size = 2;
+speaker_facade_rounded_radius = 3;
+speaker_facade_fixation_throws_margin = 3.5;
+speaker_facade_fixation_throws_diameter = 3;
+speaker_facade_throw_diameter = 40+1;
+// 
 facade_top_on_off_button_throw_diameter = 12.8;
 
 
 facade_cassette_case_coords = [
-    30 + 21,
-    4.8 + 16,
+    60 + 5,
+    23,
 ];
 
 facade_speaker_40mm_coords = [
-    30,
-    50,
+    32 + 5,
+    facade_cassette_case_coords[1] + (cassette_case_y_size / 2),
 ];
+
+batteries_holder_coords = [
+    8 + 5,
+    20
+];
+
+volume_buttons_spacing = 20;
+//volume_buttons_coords = [145,50];
+volume_buttons_coords = [
+    145 + 5 ,
+    facade_cassette_case_coords[1] + (cassette_case_y_size / 2),
+];
+
+controller_buttons_spacing = 20;
+//controller_buttons_coords = [98,14];
+controller_buttons_coords = [
+    facade_cassette_case_coords[0] + (cassette_case_x_size / 2),
+    14
+];
+
+controller_onoff_coords = [
+    32 + 5,
+    14
+];
+
+

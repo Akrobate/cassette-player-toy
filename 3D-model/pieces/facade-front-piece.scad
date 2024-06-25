@@ -1,8 +1,11 @@
 use <./subpieces/rounded-pane.scad>
 
-use <./../libraries/commons.scad>
-use <./../libraries/electronics.scad>
+use <../libraries/commons.scad>
+use <../libraries/electronics.scad>
 use <./cassette-case-piece.scad>
+use <./speaker-facade-piece.scad>
+use <../enveloppes/speaker-40mm-throws-enveloppe.scad>
+use <../enveloppes/on-off-button-throw-enveloppe.scad>
 
 
 include <./../configurations/global.scad>
@@ -52,27 +55,44 @@ module facadeFrontPiece(
                 cylinder(h = z_size * 2, d = throws_diameter, $fn = $fn);
 
 
-        translate(
-            [
-                facade_cassette_case_coords[0],
-                facade_cassette_case_coords[1]
-            ]
-        )
+        translate(facade_cassette_case_coords)
             cassetteCaseThrowsEnveloppe();
 
-        translate(
-            [
-                facade_speaker_40mm_coords[0],
-                facade_speaker_40mm_coords[1],
-                -z_size / 2
-            ]
-        )
-            cylinder(h = z_size * 2, d = 40, $fn = $fn);
 
-    
+        translate(facade_speaker_40mm_coords)
+            speaker40mmThrowsEnveloppe();
 
 
+        translate(facade_speaker_40mm_coords)
+            translate([-speaker_facade_x_size / 2 , -speaker_facade_y_size / 2])
+                speakerFacadePieceFixationThrows(
+                    z_size = case_external_panes_thickness * 2
+                );
 
+        // On off button
+        translate([controller_onoff_coords[0], controller_onoff_coords[1]])
+            onOffButtonThrowEnveloppe();
+
+        // Controll button
+        translate(controller_buttons_coords) {
+            translate([-volume_buttons_spacing, 0])
+                onOffButtonThrowEnveloppe();
+
+            translate([0, 0, 0 ])
+                onOffButtonThrowEnveloppe();
+
+            translate([volume_buttons_spacing, 0])
+                onOffButtonThrowEnveloppe();
+        }
+
+        // Volume
+        translate(volume_buttons_coords) {
+            translate([0, -controller_buttons_spacing / 2])
+                onOffButtonThrowEnveloppe();
+
+            translate([0, controller_buttons_spacing /2])
+                onOffButtonThrowEnveloppe();
+        }
 
     }
 }

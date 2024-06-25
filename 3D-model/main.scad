@@ -1,6 +1,8 @@
 include <./configurations/global.scad>
 
 use <./assets/on-off-button/on-off-button.scad>
+use <./assets/batteries-holder/batteries-holder.scad>
+use <./assets/speaker40mm/speaker40mm.scad>
 
 use <./libraries/electronics.scad>
 use <./libraries/breadboard.scad>
@@ -8,27 +10,58 @@ use <./libraries/breadboard.scad>
 
 use <./pieces/cassette-piece.scad>
 use <./pieces/cassette-case-piece.scad>
+use <./pieces/speaker-facade-piece.scad>
 use <./pieces/bolt-join-mother-board-piece.scad>
 
 use <./components/mother-board-component.scad>
 use <./components/housing-component.scad>
 
 
+
+
 housingComponent();
 
-translate([40, 13]) {
+
+
+translate([facade_speaker_40mm_coords[0], facade_speaker_40mm_coords[1], case_external_z_size])
+    translate([-speaker_facade_x_size / 2 , -speaker_facade_y_size / 2])
+    speakerFacadePiece();
+
+translate([facade_speaker_40mm_coords[0], facade_speaker_40mm_coords[1], case_external_z_size])
+    speaker40mm();
+
+translate([batteries_holder_coords[0], batteries_holder_coords[1], case_external_panes_thickness])
+    batteriesHolder();
+
+
+
+// On off button
+translate([controller_onoff_coords[0], controller_onoff_coords[1], case_external_z_size ])
+    onOffButton();
+
+// Controll button
+translate(controller_buttons_coords) {
+    translate([-volume_buttons_spacing, 0, case_external_z_size ])
+        onOffButton();
+
     translate([0, 0, case_external_z_size ])
         onOffButton();
 
-    translate([20, 0, case_external_z_size ])
-        onOffButton();
-
-    translate([40, 0, case_external_z_size])
-        onOffButton();
-
-    translate([60, 0, case_external_z_size])
+    translate([volume_buttons_spacing, 0, case_external_z_size])
         onOffButton();
 }
+
+// Volume
+translate(volume_buttons_coords) {
+    translate([0, -controller_buttons_spacing / 2, case_external_z_size ])
+        onOffButton();
+
+    translate([0, controller_buttons_spacing /2, case_external_z_size ])
+        onOffButton();
+
+}
+
+
 
 translate(
     [
@@ -37,7 +70,6 @@ translate(
          + case_external_z_size - case_external_panes_thickness - 10  + 0.615 - case_external_panes_thickness
     ]
 ) {
-
 
     translate([0,0,10])
         cassetteCasePiece();
