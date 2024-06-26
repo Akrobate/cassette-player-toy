@@ -24,10 +24,10 @@ module housingComponent() {
 
 
 
-/*
+
     translate([facade_corners_offset_lenght, case_external_panes_thickness - 0.01, case_external_panes_thickness])
         rotate([90,0,0])
-            facadeBottomPiece();
+            facadeTopPiece();
 
     translate([facade_corners_offset_lenght, case_external_y_size + 0.01, case_external_panes_thickness])
         rotate([90,0,0])
@@ -40,7 +40,7 @@ module housingComponent() {
     translate([case_external_x_size - case_external_panes_thickness + 0.01, facade_corners_offset_lenght, case_external_panes_thickness])
         rotate([90,0,90])
             facadeLeftPiece();
-*/
+
     module corners() {
         // Corner (bottom left)
         translate([0, 0, case_external_panes_thickness])
