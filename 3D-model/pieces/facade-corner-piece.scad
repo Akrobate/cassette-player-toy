@@ -105,5 +105,5 @@ module facadeCornerPiece(
 
 
 facadeCornerPiece(
-    $fn = 80
+    $fn = 150
 );
