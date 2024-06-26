@@ -25,7 +25,7 @@ module speakerFacadePiece(
 
     difference() {
 
-        roundedPane([x_size, y_size, z_size], r1 = rounded_radius, r2 = rounded_radius);
+        roundedPane([x_size, y_size, z_size], r1 = rounded_radius, r2 = rounded_radius - 0.5);
 
         translate([ x_size / 2, y_size / 2, -z_size / 2]) {
             intersection() {
