@@ -56,7 +56,9 @@ module facadeFrontPiece(
 
 
         translate(facade_cassette_case_coords)
-            cassetteCaseThrowsEnveloppe();
+            cassetteCaseThrowsEnveloppe(
+                throws_diameter = housing_facades_throws_diameter
+            );
 
 
         translate(facade_speaker_40mm_coords)
@@ -66,7 +68,8 @@ module facadeFrontPiece(
         translate(facade_speaker_40mm_coords)
             translate([-speaker_facade_x_size / 2 , -speaker_facade_y_size / 2])
                 speakerFacadePieceFixationThrows(
-                    z_size = case_external_panes_thickness * 2
+                    z_size = case_external_panes_thickness * 2,
+                    throws_diameter = throws_diameter
                 );
 
         // On off button
