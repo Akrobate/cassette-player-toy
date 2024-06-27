@@ -72,4 +72,4 @@ module speakerFacadePieceFixationThrows(
 
 
 
-speakerFacadePiece();
+speakerHolder();
