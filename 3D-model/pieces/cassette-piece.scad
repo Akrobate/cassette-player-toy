@@ -7,6 +7,9 @@ module cassettePiece(
     z_size = cassette_z_size,
     round_radius = cassette_round_radius,
 ) {
+
+    echo(str("cassettePiece ", "x_size: ", x_size, " y_size: ", y_size, " z_size: ", z_size));
+
     hull()
         forEachCoord([
             [0 + round_radius, 0 + round_radius],
