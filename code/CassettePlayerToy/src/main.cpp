@@ -4,6 +4,11 @@
 #include <DFRobotDFPlayerMini.h>
 #include <Toggle.h>
 
+#include <LightAnimation.h>
+
+
+LightAnimation lightAnimation();
+
 #define LED 8
 
 #define RX_PIN 10  // plugged on TX of the DFPlayer
@@ -18,15 +23,12 @@
 #define BUTTON_VOLUME_UP    18
 
 
-#define CNY70_0  19
-
-
 
 void printDetail(uint8_t type, int value);
 
 
-SoftwareSerial softSerial(RX_PIN, TX_PIN);
-#define FPSerial softSerial
+// SoftwareSerial softSerial(RX_PIN, TX_PIN);
+// #define FPSerial softSerial
 
 Toggle buttonVolumeUp(BUTTON_VOLUME_UP);
 Toggle buttonVolumeDown(BUTTON_VOLUME_DOWN);
@@ -44,31 +46,26 @@ unsigned int volume = 10;
 int cny70_0 = 0;
 
 
+#define CNY70_INPUT_0  A2
+#define CNY70_LED_0  12
+
+
 
 void setup() {
 
     pinMode(LED, OUTPUT);
 
-    FPSerial.begin(9600);
+    // FPSerial.begin(9600);
     Serial.begin(9600);
 
     Serial.println();
     Serial.println(F("Initializing DFPlayer ... (May take 3~5 seconds)"));
 
-    if (!myDFPlayer.begin(FPSerial, true, true)) {
-        Serial.println(F("Unable to begin"));
-        while(true) {
-            delay(0);
-        }
-    }
-    Serial.println(F("DFPlayer Mini online."));
-    myDFPlayer.volume(volume);
-
-
     // CNY70
 
-    pinMode(CNY70_0, INPUT_PULLUP);
-    // pinMode(CNY70_0, INPUT);
+    //pinMode(CNY70_0, INPUT_PULLUP);
+    pinMode(CNY70_INPUT_0, INPUT);
+    pinMode(CNY70_LED_0, OUTPUT);
 
     
 }
@@ -80,163 +77,24 @@ void loop() {
     static unsigned long timer = millis();
 
 
-    buttonVolumeUp.poll();
-    buttonVolumeDown.poll();
-    buttonPlay.poll();
-    buttonNext.poll();
-    buttonPrevious.poll();
+    Serial.print(F("CNY ON LED"));
+    digitalWrite(CNY70_LED_0, HIGH);
 
-    if (buttonVolumeUp.onPress()) {
-        volume += 1;
-        if (volume > 30) {
-            volume = 30;
-        }
-        myDFPlayer.volume(volume);
+    delay(2000);
 
-        Serial.print(F("Volume: "));
-        Serial.println(volume);
-    }
-
-    if (buttonVolumeDown.onPress()) {
-        if (volume > 0) {
-            volume -= 1;
-            Serial.print(F("Volume: "));
-            Serial.println(volume);
-            myDFPlayer.volume(volume);
-        }
-    }
-
-    if (buttonPlay.onPress()) {
-        Serial.println(F("Play"));
-
-        if (is_playing) {
-            myDFPlayer.pause();
-            is_playing = false;
-        } else {
-            myDFPlayer.start();
-            is_playing = true;
-        }
-
-        Serial.println(myDFPlayer.readCurrentFileNumber());
-        myDFPlayer.play(1);
-        myDFPlayer.enableLoopAll();
-
-        delay(100);
-        Serial.println(myDFPlayer.readCurrentFileNumber());
-    }
-
-    if (buttonNext.onPress()) {
-        Serial.println(F("Next file:"));
-        Serial.println(myDFPlayer.readCurrentFileNumber());
-        myDFPlayer.next();
-        // delay(3000);
-        Serial.println(myDFPlayer.readCurrentFileNumber());
-        Serial.println(myDFPlayer.readCurrentFileNumber());
-    }
-
-    if (buttonPrevious.onPress()) {
-        Serial.println(F("Previous file:"));
-        Serial.println(myDFPlayer.readCurrentFileNumber());
-        myDFPlayer.previous();
-        // delay(3000);
-        Serial.println(myDFPlayer.readCurrentFileNumber());
-        Serial.println(myDFPlayer.readCurrentFileNumber());
-    }
-
-
-    if (millis() - timer > 300000) {
-        timer = millis();
-
-        Serial.print(F("Playing now: "));
-        Serial.println(myDFPlayer.readCurrentFileNumber());
-
-        Serial.print(F("State now: "));
-        Serial.println(myDFPlayer.readState());
-        Serial.print(F("readFileCounts now: "));
-        Serial.println(myDFPlayer.readFileCounts());
-        Serial.println(F("---------------------------"));
-
-
-    }
-
-    if (myDFPlayer.available()) {
-        printDetail(myDFPlayer.readType(), myDFPlayer.read()); //Print the detail message from DFPlayer to handle different errors and states.
-    }
-    
-
-    // digitalWrite(LED, HIGH);  // turn the LED on (HIGH is the voltage level)
-    // delay(100);                      // wait for a second
-    // digitalWrite(LED, LOW);   // turn the LED off by making the voltage LOW
-    // delay(100);                      // wait for a second
-
-
-    cny70_0 = analogRead(CNY70_0);
+    cny70_0 = analogRead(CNY70_INPUT_0);
     Serial.print(F("CNY Value : "));
+    Serial.println(cny70_0);
+
+    Serial.print(F("CNY OFF LED"));
+    digitalWrite(CNY70_LED_0, LOW);
+
+    delay(2000);
+
+    cny70_0 = analogRead(CNY70_INPUT_0);
+    Serial.print(F("CNY Value (led off): "));
     Serial.println(cny70_0);
 
 }
 
 
-
-
-
-void printDetail(uint8_t type, int value) {
-  switch (type) {
-    case TimeOut:
-      Serial.println(F("Time Out!"));
-      break;
-    case WrongStack:
-      Serial.println(F("Stack Wrong!"));
-      break;
-    case DFPlayerCardInserted:
-      Serial.println(F("Card Inserted!"));
-      break;
-    case DFPlayerCardRemoved:
-      Serial.println(F("Card Removed!"));
-      break;
-    case DFPlayerCardOnline:
-      Serial.println(F("Card Online!"));
-      break;
-    case DFPlayerUSBInserted:
-      Serial.println("USB Inserted!");
-      break;
-    case DFPlayerUSBRemoved:
-      Serial.println("USB Removed!");
-      break;
-    case DFPlayerPlayFinished:
-      Serial.print(F("Number:"));
-      Serial.print(value);
-      Serial.println(F(" Play Finished!"));
-      break;
-    case DFPlayerError:
-      Serial.print(F("DFPlayerError:"));
-      switch (value) {
-        case Busy:
-          Serial.println(F("Card not found"));
-          break;
-        case Sleeping:
-          Serial.println(F("Sleeping"));
-          break;
-        case SerialWrongStack:
-          Serial.println(F("Get Wrong Stack"));
-          break;
-        case CheckSumNotMatch:
-          Serial.println(F("Check Sum Not Match"));
-          break;
-        case FileIndexOut:
-          Serial.println(F("File Index Out of Bound"));
-          break;
-        case FileMismatch:
-          Serial.println(F("Cannot Find File"));
-          break;
-        case Advertise:
-          Serial.println(F("In Advertise"));
-          break;
-        default:
-          break;
-      }
-      break;
-    default:
-      break;
-  }
-}
