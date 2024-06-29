@@ -4,6 +4,9 @@
 #include <DFRobotDFPlayerMini.h>
 #include <Toggle.h>
 
+#include <FastLED.h>
+
+
 #include <LightAnimation.h>
 
 
@@ -19,15 +22,20 @@ LightAnimation lightAnimation();
 #define PIXEL_LED_PIN 4
 
 
+#define NUM_LEDS 1
+
+CRGB leds[NUM_LEDS];
 
 
-#define BUTTON_PREVIOUS  14
-#define BUTTON_NEXT      15
+#define BUTTON_PREVIOUS  9
+#define BUTTON_NEXT      11
+#define BUTTON_PLAY 10
 
-#define BUTTON_PLAY 16
+#define BUTTON_VOLUME_DOWN  8
+#define BUTTON_VOLUME_UP    7
 
-#define BUTTON_VOLUME_DOWN  17
-#define BUTTON_VOLUME_UP    18
+
+
 
 
 
@@ -76,14 +84,26 @@ void setup() {
     Serial.println();
     Serial.println(F("Initializing DFPlayer ... (May take 3~5 seconds)"));
 
-    if (!myDFPlayer.begin(FPSerial, true, true)) {
+
+
+    if (!myDFPlayer.begin(FPSerial, true, false)) {
         Serial.println(F("Unable to begin"));
         while(true) {
             delay(0);
         }
     }
+
+
+    myDFPlayer.volume(0);
+
+    // myDFPlayer.play(1);
+
     Serial.println(F("DFPlayer on the air !!! "));
 
+    //delay(5000);
+
+
+    //myDFPlayer.reset();
 
 
     // CNY70
@@ -99,6 +119,11 @@ void setup() {
     pinMode(CNY70_INPUT_3, INPUT);
     pinMode(CNY70_LED_3, OUTPUT);
 
+
+    pinMode(PIXEL_LED_PIN, OUTPUT);
+    digitalWrite(PIXEL_LED_PIN, LOW);
+    FastLED.addLeds<NEOPIXEL, PIXEL_LED_PIN>(leds, NUM_LEDS);
+
     
 }
 
@@ -106,28 +131,53 @@ void setup() {
 
 void loop() {
 
-    static unsigned long timer = millis();
+    // static unsigned long timer = millis();
 
-/*
-    Serial.print(F("CNY ON LED"));
-    digitalWrite(CNY70_LED_0, HIGH);
 
-    delay(2000);
+    buttonVolumeUp.poll();
+    buttonVolumeDown.poll();
+    buttonPlay.poll();
+    buttonNext.poll();
+    buttonPrevious.poll();
 
-    cny70_0 = analogRead(CNY70_INPUT_0);
-    Serial.print(F("CNY Value : "));
-    Serial.println(cny70_0);
+    if (buttonVolumeUp.onPress()) {
+        volume += 1;
+        if (volume > 30) {
+            volume = 30;
+        }
+        myDFPlayer.volume(volume);
 
-    Serial.print(F("CNY OFF LED"));
-    digitalWrite(CNY70_LED_0, LOW);
+        Serial.print(F("Volume: "));
+        Serial.println(volume);
+    }
 
-    delay(2000);
+    if (buttonVolumeDown.onPress()) {
+        if (volume > 0) {
+            volume -= 1;
+            Serial.print(F("Volume: "));
+            Serial.println(volume);
+            myDFPlayer.volume(volume);
+        }
+    }
 
-    cny70_0 = analogRead(CNY70_INPUT_0);
-    Serial.print(F("CNY Value (led off): "));
-    Serial.println(cny70_0);
-*/
 
+
+    if (buttonPlay.onPress()) {
+        Serial.println(F("Play"));
+    }
+
+    if (buttonNext.onPress()) {
+        Serial.println(F("Next file:"));
+    }
+
+    if (buttonPrevious.onPress()) {
+        Serial.println(F("Previous file:"));
+    }
+
+
+
+
+    /*
 
     digitalWrite(CNY70_LED_0, HIGH);
     delay(100);
@@ -159,10 +209,19 @@ void loop() {
     Serial.print(", CNY3: ");
     Serial.println(cny70_3);
 
+    */
 
-    delay(1000);
+// delay(1000);
+
+    leds[0] = CRGB::Red;
+    //FastLED.show();
 
 
+    //delay(100);
+
+
+    // leds[0] = CRGB::Green;
+    // FastLED.show();
 
 
     //if (myDFPlayer.available()) {
