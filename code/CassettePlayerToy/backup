@@ -30,8 +30,8 @@ LightAnimation lightAnimation();
 void printDetail(uint8_t type, int value);
 
 
-// SoftwareSerial softSerial(RX_PIN, TX_PIN);
-// #define FPSerial softSerial
+SoftwareSerial softSerial(RX_PIN, TX_PIN);
+#define FPSerial softSerial
 
 Toggle buttonVolumeUp(BUTTON_VOLUME_UP);
 Toggle buttonVolumeDown(BUTTON_VOLUME_DOWN);
