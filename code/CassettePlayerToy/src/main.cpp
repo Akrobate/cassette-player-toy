@@ -6,41 +6,18 @@
 
 #include <FastLED.h>
 
-
+#include "./configuration.h"
 #include <LightAnimation.h>
+#include <Cny70.h>
 
 
 LightAnimation lightAnimation();
 
-
-// Verified
-#define RX_PIN 2  // plugged on TX of the DFPlayer
-#define TX_PIN 3  // plugged on RX of the DFPlayer
-
-
 // Pixel led (ws2812b)
-#define PIXEL_LED_PIN 4
 
-
-#define NUM_LEDS 1
-
-CRGB leds[NUM_LEDS];
-
-
-#define BUTTON_PREVIOUS  9
-#define BUTTON_NEXT      11
-#define BUTTON_PLAY 10
-
-#define BUTTON_VOLUME_DOWN  8
-#define BUTTON_VOLUME_UP    7
-
-
-
-
-
+CRGB leds[1];
 
 void printDetail(uint8_t type, int value);
-
 
 SoftwareSerial softSerial(RX_PIN, TX_PIN);
 #define FPSerial softSerial
@@ -53,7 +30,6 @@ Toggle buttonPrevious(BUTTON_PREVIOUS);
 
 DFRobotDFPlayerMini myDFPlayer;
 
-
 boolean is_playing = 0;
 
 unsigned int volume = 10;
@@ -64,17 +40,11 @@ int cny70_2 = 0;
 int cny70_3 = 0;
 
 
-#define CNY70_INPUT_0  A2
-#define CNY70_LED_0  12
+Cny70 cny_1(CNY70_INPUT_0, CNY70_LED_0);
+Cny70 cny_2(CNY70_INPUT_0, CNY70_LED_0);
+Cny70 cny_3(CNY70_INPUT_0, CNY70_LED_0);
 
-#define CNY70_INPUT_1  A3
-#define CNY70_LED_1  13
 
-#define CNY70_INPUT_2  A4
-#define CNY70_LED_2  14
-
-#define CNY70_INPUT_3  A5
-#define CNY70_LED_3  15
 
 void setup() {
 
@@ -122,7 +92,7 @@ void setup() {
 
     pinMode(PIXEL_LED_PIN, OUTPUT);
     digitalWrite(PIXEL_LED_PIN, LOW);
-    FastLED.addLeds<NEOPIXEL, PIXEL_LED_PIN>(leds, NUM_LEDS);
+    FastLED.addLeds<NEOPIXEL, PIXEL_LED_PIN>(leds, 1);
 
     
 }
