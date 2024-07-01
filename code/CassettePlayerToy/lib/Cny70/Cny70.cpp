@@ -20,7 +20,7 @@ void Cny70::update() {
         if (millis() > this->last_time + this->mesure_time) {
             this->value = analogRead(this->input_analog_pin);
             digitalWrite(this->led_pin, LOW);
-            this->led_state == false;
+            this->led_state = false;
             this->processing_mesure = false;
             this->value_available = true;
         }
@@ -30,7 +30,7 @@ void Cny70::update() {
 
 void Cny70::processMesure() {
     this->processing_mesure = true;
-
+    this->last_time = millis();
 }
 
 
@@ -51,4 +51,9 @@ int Cny70::getValue() {
 
 bool Cny70::valueAvailable() {
     return this->value_available;
+}
+
+
+bool Cny70::isProcessingMesure() {
+    return this->processing_mesure;
 }

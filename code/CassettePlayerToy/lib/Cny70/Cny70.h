@@ -17,6 +17,7 @@ class Cny70 {
         bool valueAvailable();
         int getValue();
         void processMesure();
+        bool isProcessingMesure();
 
     private:
 
@@ -26,8 +27,8 @@ class Cny70 {
 
         bool led_state = false;
         
-        const unsigned int mesure_time = 100;
-        unsigned int last_time = 0;
+        const unsigned int mesure_time = 2;
+        unsigned long last_time = 0;
 
         bool value_available = false;
         bool processing_mesure = false;
