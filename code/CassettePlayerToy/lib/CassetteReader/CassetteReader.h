@@ -2,7 +2,7 @@
 #define CassetteReader_h
 
 #include "../Cny70/Cny70.h"
-#include "configuration.h"
+#include "../../src/configuration.h"
 
 #include <Arduino.h>
 
@@ -17,6 +17,13 @@ class CassetteReader {
         CassetteReader();
 
         void update();
+        int getIntegerValue();
+
+        bool valueChanged();
+
+        int calculateIntegerValue();
+
+        bool serial_debug_activate = false;
 
 
     private:
@@ -30,8 +37,8 @@ class CassetteReader {
         int cny_threshold[4];
         int value = 0;
 
-        int last_time = 0;
-        int period_duration = 2000;
+        unsigned long last_time = 0;
+        unsigned int period_duration = 500;
 
 };
 
