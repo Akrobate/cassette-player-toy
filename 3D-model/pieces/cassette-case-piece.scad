@@ -33,15 +33,11 @@ module cassetteCasePiece(
     cny70set_y_point_coord = cassette_case_cny70set_y_point_coord,
     cny70set_x_y_margin = cassette_case_cny70set_x_y_margin,
 
-    $fn = 100
+    _fn = 200
 ) {
 
-
-
-
     difference() {
-
-        
+     
         roundedPane(
             [
                 cassette_case_x_size,
@@ -50,7 +46,7 @@ module cassetteCasePiece(
             ],
             cassette_case_round_radius,
             cassette_case_round_radius,
-            $fn=100
+            $fn = _fn
         );
 
         translate(
@@ -66,9 +62,9 @@ module cassetteCasePiece(
                     cassette_y_size + (cassette_case_x_y_margin * 2),
                     cassette_z_size + 1
                 ],
-                cassette_round_radius,
-                cassette_round_radius,
-                $fn=100
+                cassette_round_radius + cassette_case_x_y_margin,
+                cassette_round_radius + cassette_case_x_y_margin,
+                $fn = _fn
             );
 
 
@@ -81,7 +77,7 @@ module cassetteCasePiece(
                 cassette_case_z_size - cassette_z_size
             ]
         )
-            cylinder(h = cassette_case_z_size, d = grip_enveloppe_diameter, $fn = $fn);
+            cylinder(h = cassette_case_z_size, d = grip_enveloppe_diameter, $fn = _fn);
 
 
         // embed
@@ -118,7 +114,7 @@ module cassetteCasePiece(
                     ],
                     embed_round_radius,
                     embed_round_radius,
-                    $fn=100
+                    $fn = _fn
                 );
         }
 
@@ -147,7 +143,7 @@ module cassetteCasePiece(
                 [throws_margin, cassette_case_y_size - throws_margin],
                 [cassette_case_x_size - throws_margin, cassette_case_y_size - throws_margin,],
             ])
-                cylinder(h = cassette_case_z_size * 2, d = throws_diameter, $fn = $fn);
+                cylinder(h = cassette_case_z_size * 2, d = throws_diameter, $fn = _fn);
     }
 }
 
@@ -163,9 +159,7 @@ module cassetteCaseThrowsEnveloppe(
 
     embed_x_size = cassette_case_embed_x_size,
     embed_y_size = cassette_case_embed_y_size,
-    embed_z_size = cassette_case_embed_z_size,
 
-    cassette_z_size = cassette_z_size,
     embed_round_radius = cassette_case_embed_round_radius,
 
     embed_throw_margin = cassette_case_embed_throw_margin,
@@ -188,19 +182,19 @@ module cassetteCaseThrowsEnveloppe(
 
     translate(
         [
-            (cassette_case_x_size - embed_x_size) / 2 - cassette_case_embed_throw_margin,
-            (cassette_case_y_size - embed_y_size) / 2 - cassette_case_embed_throw_margin,
+            (cassette_case_x_size - embed_x_size) / 2 - embed_throw_margin,
+            (cassette_case_y_size - embed_y_size) / 2 - embed_throw_margin,
             -cassette_case_z_size / 2
         ]
     )
         roundedPane(
             [
-                embed_x_size + cassette_case_embed_throw_margin * 2,
-                embed_y_size + cassette_case_embed_throw_margin * 2,
+                embed_x_size + embed_throw_margin * 2,
+                embed_y_size + embed_throw_margin * 2,
                 cassette_case_z_size * 2
             ],
-            embed_round_radius + cassette_case_embed_throw_margin,
-            embed_round_radius + cassette_case_embed_throw_margin,
+            embed_round_radius + embed_throw_margin,
+            embed_round_radius + embed_throw_margin,
             $fn=100
         );
 }
@@ -208,9 +202,6 @@ module cassetteCaseThrowsEnveloppe(
 
 
 
-
-
 cassetteCasePiece();
 
-
-#cassetteCaseThrowsEnveloppe();
+*cassetteCaseThrowsEnveloppe();
