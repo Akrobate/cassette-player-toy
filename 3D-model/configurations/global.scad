@@ -53,7 +53,7 @@ cassette_case_embed_offsets = 10;
 cassette_case_embed_round_radius = 6;
 
 cassette_case_throws_margin = 2.54 * 2;
-cassette_case_throws_diameter = 3;
+cassette_case_throws_diameter = 3.5;
 cassette_case_grip_enveloppe_diameter = 15;
 cassette_case_grip_enveloppe_offset = 3;
 
@@ -74,11 +74,11 @@ bolt_join_fn = 200;
 
 // speaker facade
 speaker_facade_x_size = 50;
-speaker_facade_y_size = cassette_case_y_size - cassette_case_throws_margin * 2 + 6;
+speaker_facade_y_size = cassette_case_y_size - cassette_case_throws_margin * 2 + 7;
 speaker_facade_z_size = 2;
 speaker_facade_rounded_radius = 3;
 speaker_facade_fixation_throws_margin = 3.5;
-speaker_facade_fixation_throws_diameter = 3;
+speaker_facade_fixation_throws_diameter = 3.5;
 speaker_facade_throw_diameter = 40+1;
 // 
 facade_top_on_off_button_throw_diameter = 12.8;
