@@ -11,7 +11,7 @@ module motherBoardComponent(
     cny70set_y_point_coord = mother_board_cny70set_y_point_coord,
 ) {
 
-    breadboard(29, 21, draw_throws = false, $fn=4);
+    breadboard(29, 21, draw_throws = true, $fn=4);
 
     translateBreadboard(
         cny70set_x_point_coord,
