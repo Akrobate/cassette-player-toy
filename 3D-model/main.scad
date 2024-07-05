@@ -11,6 +11,8 @@ use <./libraries/breadboard.scad>
 use <./pieces/cassette-piece.scad>
 use <./pieces/cassette-case-piece.scad>
 use <./pieces/speaker-facade-piece.scad>
+use <./pieces/speaker-holder.scad>
+
 use <./pieces/bolt-join-mother-board-piece.scad>
 
 use <./components/mother-board-component.scad>
@@ -27,10 +29,14 @@ translate([facade_speaker_40mm_coords[0], facade_speaker_40mm_coords[1], case_ex
     translate([-speaker_facade_x_size / 2 , -speaker_facade_y_size / 2])
     speakerFacadePiece();
 
+translate([facade_speaker_40mm_coords[0], facade_speaker_40mm_coords[1], 21])
+    translate([-speaker_facade_x_size / 2 , -speaker_facade_y_size / 2])
+    speakerHolder();
+
 translate([facade_speaker_40mm_coords[0], facade_speaker_40mm_coords[1], case_external_z_size])
     speaker40mm();
 
-translate([batteries_holder_coords[0], batteries_holder_coords[1], case_external_panes_thickness])
+*translate([batteries_holder_coords[0], batteries_holder_coords[1], case_external_panes_thickness])
     batteriesHolder();
 
 
@@ -88,7 +94,7 @@ translate(
     translateBreadboard(28, 2, 1.5)
         boltJoinMotherBoardPiece();
 
-    *translate(
+    #translate(
         [
             (cassette_case_x_size - cassette_x_size) / 2,
             (cassette_case_y_size - cassette_y_size) / 2,
@@ -96,5 +102,4 @@ translate(
         ]
     )
         cassettePiece();
-
 }
