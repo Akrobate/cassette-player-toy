@@ -2,12 +2,10 @@
 
 
 LightAnimation::LightAnimation() {
-
     pinMode(PIXEL_LED_PIN, OUTPUT);
     digitalWrite(PIXEL_LED_PIN, LOW);
     FastLED.addLeds<NEOPIXEL, PIXEL_LED_PIN>(leds, 1);
 }
-
 
 
 void LightAnimation::update() {
@@ -33,8 +31,6 @@ void LightAnimation::update() {
 }
 
 
-
-
 void LightAnimation::animationStartDevice() {
     if (millis() < this->last_time + this->period_duration) {
         leds[0] = CHSV(
@@ -45,8 +41,6 @@ void LightAnimation::animationStartDevice() {
         FastLED.show();
     }
 }
-
-
 
 
 void LightAnimation::animationNoCassette() {
@@ -79,15 +73,8 @@ void LightAnimation::animationNoCassette() {
 }
 
 
-
-
 void LightAnimation::animationCassetteDetected() {
-
-
     unsigned long _millis = millis();
-
-    // Serial.println(_millis - this->last_time);
-
     if (_millis < this->last_time + this->period_duration) {
 
         if (_millis < this->last_time + this->period_duration / 2) {
@@ -113,18 +100,10 @@ void LightAnimation::animationCassetteDetected() {
         }
     }
 }
-
-
-
 
 
 void LightAnimation::animationPaused() {
-
-
     unsigned long _millis = millis();
-
-    // Serial.println(_millis - this->last_time);
-
     if (_millis < this->last_time + this->period_duration) {
 
         if (_millis < this->last_time + this->period_duration / 2) {
@@ -150,20 +129,10 @@ void LightAnimation::animationPaused() {
         }
     }
 }
-
-
-
-
-
 
 
 void LightAnimation::animationUnknownCassette() {
-
-
     unsigned long _millis = millis();
-
-    // Serial.println(_millis - this->last_time);
-
     if (_millis < this->last_time + this->period_duration) {
 
         if (_millis < this->last_time + this->period_duration / 2) {
@@ -189,9 +158,6 @@ void LightAnimation::animationUnknownCassette() {
         }
     }
 }
-
-
-
 
 
 void LightAnimation::triggerAnimationStartDevice() {
@@ -208,6 +174,7 @@ void LightAnimation::triggerAnimationNoCassette() {
     this->loop_animation = true;
 }
 
+
 void LightAnimation::triggerAnimationCassetteDetected() {
     this->last_time = millis();
     this->period_duration = 10000;
@@ -215,12 +182,14 @@ void LightAnimation::triggerAnimationCassetteDetected() {
     this->loop_animation = true;
 }
 
+
 void LightAnimation::triggerAnimationPaused() {
     this->last_time = millis();
     this->period_duration = 1000;
     this->animation = ANIMATION_PAUSED;
     this->loop_animation = true;
 }
+
 
 void LightAnimation::triggerAnimationUnknownCassette() {
     this->last_time = millis();

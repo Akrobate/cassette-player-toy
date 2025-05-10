@@ -6,17 +6,9 @@
 
 #include <Arduino.h>
 
-/**
- * About LightAnimation class
- */
-
 class LightAnimation {
     
     public:
-
-        LightAnimation();
-
-        
         static constexpr int ANIMATION_NO_ANIMATION = 0;
         static constexpr int ANIMATION_START_DEVICE = 1;
         static constexpr int ANIMATION_NO_CASSETTE = 2;
@@ -26,6 +18,7 @@ class LightAnimation {
 
         unsigned int animation = 0; 
 
+        LightAnimation();
         void update();
 
         void resetAnimation();
@@ -49,10 +42,6 @@ class LightAnimation {
         void animationCassetteDetected();
         void animationPaused();
         void animationUnknownCassette();
-
-
-
-
 };
 
 #endif
