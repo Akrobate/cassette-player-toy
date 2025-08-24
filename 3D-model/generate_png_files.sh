@@ -1,30 +1,38 @@
+#!/bin/bash
 
-declare -g PIECES=(
-bolt-join-mother-board-piece
-cassette-piece
-facade-corner-piece
-facade-left-piece
-speaker-facade-piece
-cassette-case-piece
-facade-back-piece
-facade-front-piece
-facade-top-piece
-speaker-holder
-)
+PIECES_PATH=./pieces/*.scad;
+COMPONENTS_PATH=./components/*.scad;
+PNG_FILES_PATH=./png_files;
 
-declare -g COMPONENTS=(
-housing-component
-mother-board-component
-)
+if [ ! -d "$PNG_FILES_PATH" ]; then
+    echo "Folder $PNG_FILES_PATH does not exist, creating"
+    mkdir $PNG_FILES_PATH
+fi
 
-# Pieces png generation
-for piece in "${PIECES[@]}"; do
-    echo "Pièce : $piece"
+if [ ! -d "$PNG_FILES_PATH/pieces" ]; then
+    echo "Folder $PNG_FILES_PATH/pieces does not exist, creating"
+    mkdir "$PNG_FILES_PATH/pieces"
+fi
+
+if [ ! -d "$PNG_FILES_PATH/components" ]; then
+    echo "Folder $PNG_FILES_PATH/components does not exist, creating"
+    mkdir "$PNG_FILES_PATH/components"
+fi
+
+for filename in $PIECES_PATH; do 
+    file=$(basename "$filename");
+    piece="${file%.*}";
+    echo "Generating PNG for piece: $piece";
     openscad --colorscheme="BeforeDawn" --view="axes,scales" -o png_files/pieces/$piece.png pieces/$piece.scad
 done
 
-# compoenents png generation
-for component in "${COMPONENTS[@]}"; do
-    echo "Pièce : $component"
+for filename in $COMPONENTS_PATH; do 
+    file=$(basename "$filename");
+    component="${file%.*}";
+    echo "Generating PNG for $piece";
     openscad --colorscheme="BeforeDawn" -o png_files/components/$component.png components/$component.scad
 done
+
+openscad --colorscheme="BeforeDawn" -o png_files/main.png main.scad
+
+echo "PNG files generated in $PNG_FILES_PATH";
