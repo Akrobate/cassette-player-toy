@@ -1,14 +1,14 @@
 use <../libraries/commons.scad>
 include <../configurations/global.scad>
 
-module cassettePiece(
+module cassetteCncPiece(
     x_size = cassette_x_size,
     y_size = cassette_y_size,
     z_size = cassette_z_size,
     round_radius = cassette_round_radius,
 ) {
 
-    echo(str("cassettePiece ", "x_size: ", x_size, " y_size: ", y_size, " z_size: ", z_size));
+    echo(str("cassetteCncPiece ", "x_size: ", x_size, " y_size: ", y_size, " z_size: ", z_size));
 
     hull()
         forEachCoord([
@@ -22,4 +22,4 @@ module cassettePiece(
 }
 
 
-cassettePiece();
+cassetteCncPiece();

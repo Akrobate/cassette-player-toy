@@ -7,8 +7,7 @@ use <./assets/speaker40mm/speaker40mm.scad>
 use <./libraries/electronics.scad>
 use <./libraries/breadboard.scad>
 
-
-use <./pieces/cassette-piece.scad>
+use <./pieces/cassette-cnc-piece.scad>
 use <./pieces/cassette-case-piece.scad>
 use <./pieces/speaker-facade-piece.scad>
 use <./pieces/speaker-holder.scad>
@@ -19,10 +18,7 @@ use <./components/mother-board-component.scad>
 use <./components/housing-component.scad>
 
 
-
-
 housingComponent();
-
 
 
 translate([facade_speaker_40mm_coords[0], facade_speaker_40mm_coords[1], case_external_z_size])
@@ -38,7 +34,6 @@ translate([facade_speaker_40mm_coords[0], facade_speaker_40mm_coords[1], case_ex
 
 *translate([batteries_holder_coords[0], batteries_holder_coords[1], case_external_panes_thickness])
     batteriesHolder();
-
 
 
 // On off button
@@ -66,8 +61,6 @@ translate(volume_buttons_coords) {
         onOffButton();
 
 }
-
-
 
 translate(
     [
@@ -101,5 +94,5 @@ translate(
             10 + 4
         ]
     )
-        cassettePiece();
+        cassetteCncPiece();
 }
