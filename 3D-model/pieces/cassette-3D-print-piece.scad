@@ -37,34 +37,16 @@ module cassette3DPrintPiece(
                 2
             ]
         ) {
-
-            cube([
-                patch_size,
-                patch_size,
-                patch_size
-            ], center = true);
-
-            translateBreadboard(3, 0, 0)
-                cube([
-                    patch_size,
-                    patch_size,
-                    patch_size
-                ], center = true);
-
-            translateBreadboard(6, 0, 0)
-                cube([
-                    patch_size,
-                    patch_size,
-                    patch_size
-                ], center = true);
-
-            translateBreadboard(9, 0, 0)
-                cube([
-                    patch_size,
-                    patch_size,
-                    patch_size
-                ], center = true);
-
+            for (offset_breadboard = [0, 3, 6, 9])
+                translateBreadboard(offset_breadboard, 0, 0)
+                    cube(
+                        [
+                            patch_size,
+                            patch_size,
+                            patch_size
+                        ],
+                        center = true
+                    );
         }
     }
 }
