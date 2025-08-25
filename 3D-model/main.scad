@@ -8,6 +8,7 @@ use <./libraries/electronics.scad>
 use <./libraries/breadboard.scad>
 
 use <./pieces/cassette-cnc-piece.scad>
+use <./pieces/cassette-3D-print-piece.scad>
 use <./pieces/cassette-case-piece.scad>
 use <./pieces/speaker-facade-piece.scad>
 use <./pieces/speaker-holder.scad>
@@ -87,12 +88,14 @@ translate(
     translateBreadboard(28, 2, 1.5)
         boltJoinMotherBoardPiece();
 
-    #translate(
+    translate(
         [
             (cassette_case_x_size - cassette_x_size) / 2,
             (cassette_case_y_size - cassette_y_size) / 2,
             10 + 4
         ]
-    )
-        cassetteCncPiece();
+    ) {
+        *cassetteCncPiece();
+        cassette3DPrintPiece();
+    }
 }
