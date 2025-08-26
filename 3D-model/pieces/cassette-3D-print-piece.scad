@@ -14,6 +14,7 @@ module cassette3DPrintPiece(
     cny70set_y_point_coord = cassette_case_cny70set_y_point_coord
 ) {
 
+
     translate([0,0,7])
         scale([0.05, 0.05, 0.01])
             surface(file = "../assets/cassette_2D_2.png", center = false, invert = true);
