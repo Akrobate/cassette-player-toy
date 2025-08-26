@@ -4,7 +4,7 @@ use <../libraries/breadboard.scad>
 include <../configurations/global.scad>
 
 
-// @todo: place the bar code positionning
+
 module cassette3DPrintPiece(
     x_size = cassette_x_size,
     y_size = cassette_y_size,
@@ -15,8 +15,6 @@ module cassette3DPrintPiece(
 ) {
 
     echo(str("cassette3DPrintPiece ", "x_size: ", x_size, " y_size: ", y_size, " z_size: ", z_size));
-
-    patch_size = 7.3;
 
     difference() {
         hull()
@@ -34,21 +32,27 @@ module cassette3DPrintPiece(
             [
                 getSizeFromPointCount(cny70set_x_point_coord - 1) - (cassette_case_x_size - cassette_x_size) / 2 + 2.54 / 2,
                 getSizeFromPointCount(cny70set_y_point_coord - 1) - (cassette_case_y_size - cassette_y_size) / 2 + 2.54 / 2,
-                2
+                0.5
             ]
         ) {
             for (offset_breadboard = [0, 3, 6, 9])
                 translateBreadboard(offset_breadboard, 0, 0)
-                    cube(
-                        [
-                            patch_size,
-                            patch_size,
-                            patch_size
-                        ],
-                        center = true
-                    );
+                    barcodePatch();
         }
     }
+}
+
+module barcodePatch() {
+    patch_size = 6.5;
+    translate([0,0, -patch_size / 2])
+        cube(
+            [
+                patch_size,
+                patch_size,
+                patch_size
+            ],
+            center = true
+        );
 }
 
 
