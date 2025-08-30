@@ -10,13 +10,16 @@ const result = JSON.parse(fs.readFileSync(path.join('data', 'result.json'), 'utf
 const data = {};
 
 result.map(item => item.title_formated).forEach((item) => {
-    data[item] = data[item] ? data[item]++ : 1;
+    if (data[item]) {
+        data[item] += 1;
+    } else {
+        data[item] = 1;
+    }
 })
 
 console.log(data);
 
 Object.keys(data).forEach(key => {
-    //console.log(key)
     if (data[key] > 1) {
         console.log(key);
     }
