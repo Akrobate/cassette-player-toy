@@ -15,9 +15,24 @@ module cassette3DPrintPiece(
 ) {
 
 
-    translate([0,0,7])
+    *translate([0,0,7])
         scale([0.05, 0.05, 0.01])
             surface(file = "../assets/cassette_2D_2.png", center = false, invert = true);
+
+
+    svg_x_size = 173.49324;
+    svg_y_size = 107.69361;
+
+    color("Yellow")
+        translate([0, 0, 5])
+            scale([
+                x_size / (svg_x_size / 72 * 25.4),
+                y_size / (svg_y_size / 72 * 25.4),
+                1]
+            )
+                import("../assets/cassette_2D.svg", convexity=3);
+
+    // cassette_2D.svg
 
     echo(str("cassette3DPrintPiece ", "x_size: ", x_size, " y_size: ", y_size, " z_size: ", z_size));
 
