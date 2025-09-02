@@ -14,45 +14,37 @@ module cassette3DPrintPiece(
     cny70set_y_point_coord = cassette_case_cny70set_y_point_coord
 ) {
 
-
-    *translate([0,0,7])
-        scale([0.05, 0.05, 0.01])
-            surface(file = "../assets/cassette_2D_2.png", center = false, invert = true);
-
-
+    echo(str("cassette3DPrintPiece ", "x_size: ", x_size, " y_size: ", y_size, " z_size: ", z_size));
+    
     svg_x_size = 173.49324;
     svg_y_size = 107.69361;
 
-    color("Yellow")
-        translate([0, 0, 5])
-            scale([
-                x_size / (svg_x_size / 72 * 25.4),
-                y_size / (svg_y_size / 72 * 25.4),
-                1]
-            )
-                import("../assets/cassette_2D.svg", convexity=3);
+    cassette_svg_height = 1;
+    barcode_patch_z_size = 0.5;
 
-    // cassette_2D.svg
+    translate([0,0,z_size - cassette_svg_height])
+        render()
+            intersection() {
+                scale([
+                    x_size / (svg_x_size / 72 * 25.4),
+                    y_size / (svg_y_size / 72 * 25.4) * 1.01,
+                    1]
+                )
+                    linear_extrude(height = cassette_svg_height)
+                        import("../assets/cassette_2D.svg");
 
-    echo(str("cassette3DPrintPiece ", "x_size: ", x_size, " y_size: ", y_size, " z_size: ", z_size));
+                cassetteCountour(x_size, y_size, cassette_svg_height, round_radius);
+
+            }
 
     difference() {
-        hull()
-            forEachCoord([
-                [0 + round_radius, 0 + round_radius],
-                [0 + round_radius, y_size - round_radius],
-                [x_size - round_radius, 0 + round_radius],
-                [x_size - round_radius, y_size - round_radius]
-            ])
-                cylinder(r=round_radius, h=z_size, $fn=100);
-
-
+        cassetteCountour(x_size, y_size, z_size - cassette_svg_height, round_radius);
 
         translate(
             [
                 getSizeFromPointCount(cny70set_x_point_coord - 1) - (cassette_case_x_size - cassette_x_size) / 2 + 2.54 / 2,
                 getSizeFromPointCount(cny70set_y_point_coord - 1) - (cassette_case_y_size - cassette_y_size) / 2 + 2.54 / 2,
-                0.5
+                barcode_patch_z_size
             ]
         ) {
             for (offset_breadboard = [0, 3, 6, 9])
@@ -73,6 +65,23 @@ module barcodePatch() {
             ],
             center = true
         );
+}
+
+
+module cassetteCountour(
+    x_size,
+    y_size,
+    z_size,
+    round_radius
+) {
+    hull()
+        forEachCoord([
+            [0 + round_radius, 0 + round_radius],
+            [0 + round_radius, y_size - round_radius],
+            [x_size - round_radius, 0 + round_radius],
+            [x_size - round_radius, y_size - round_radius]
+        ])
+            cylinder(r=round_radius, h=z_size, $fn=100);
 }
 
 
