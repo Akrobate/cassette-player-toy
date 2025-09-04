@@ -19,8 +19,10 @@ module cassette3DPrintPiece(
     svg_x_size = 173.49324;
     svg_y_size = 107.69361;
 
-    cassette_svg_height = 1;
-    barcode_patch_z_size = 0.5;
+    cassette_tag = true;
+
+    cassette_svg_height = 0.2 * 2;
+    barcode_patch_z_size = 0.2 * 2;
 
     translate([0,0,z_size - cassette_svg_height])
         render()
@@ -31,7 +33,11 @@ module cassette3DPrintPiece(
                     1]
                 )
                     linear_extrude(height = cassette_svg_height)
-                        import("../assets/cassette_2D.svg");
+                        if (cassette_tag) {
+                            import("../assets/cassette_2D_tag.svg");
+                        } else {
+                            import("../assets/cassette_2D.svg");
+                        }
 
                 cassetteCountour(x_size, y_size, cassette_svg_height, round_radius);
 
