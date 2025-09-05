@@ -2,7 +2,8 @@
 
 declare -g PIECES=(
 bolt-join-mother-board-piece
-cassette-piece
+cassette-3D-print-piece
+cassette-cnc-piece
 facade-corner-piece
 facade-left-piece
 speaker-facade-piece
