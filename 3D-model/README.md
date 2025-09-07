@@ -1,5 +1,20 @@
 # Aperçu des rendus OpenSCAD
 
+
+## Assemblage principal
+
+![main](png_files/main.png)
+
+
+## Composants
+
+### housing-component
+![housing-component](png_files/components/housing-component.png)
+
+### mother-board-component
+![mother-board-component](png_files/components/mother-board-component.png)
+
+
 ## Pièces
 
 ### bolt-join-mother-board-piece
@@ -38,15 +53,5 @@
 ### speaker-holder
 ![speaker-holder](png_files/pieces/speaker-holder.png)
 
-## Composants
 
-### housing-component
-![housing-component](png_files/components/housing-component.png)
-
-### mother-board-component
-![mother-board-component](png_files/components/mother-board-component.png)
-
-## Assemblage principal
-
-![main](png_files/main.png)
 
