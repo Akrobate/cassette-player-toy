@@ -20,17 +20,10 @@
 ### bolt-join-mother-board-piece
 ![bolt-join-mother-board-piece](png_files/pieces/bolt-join-mother-board-piece.png)
 
-### cassette-3D-print-piece
-![cassette-3D-print-piece](png_files/pieces/cassette-3D-print-piece.png)
+
 
 ### cassette-case-piece
 ![cassette-case-piece](png_files/pieces/cassette-case-piece.png)
-
-### cassette-cnc-piece
-![cassette-cnc-piece](png_files/pieces/cassette-cnc-piece.png)
-
-### cassette-piece
-![cassette-piece](png_files/pieces/cassette-piece.png)
 
 ### facade-back-piece
 ![facade-back-piece](png_files/pieces/facade-back-piece.png)
@@ -54,4 +47,11 @@
 ![speaker-holder](png_files/pieces/speaker-holder.png)
 
 
+## Cassete Pieces
+
+### cassette-3D-print-piece
+![cassette-3D-print-piece](png_files/pieces/cassette-3D-print-piece.png)
+
+### cassette-cnc-piece
+![cassette-cnc-piece](png_files/pieces/cassette-cnc-piece.png)
 
