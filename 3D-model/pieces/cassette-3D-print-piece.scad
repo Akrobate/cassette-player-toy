@@ -2,6 +2,7 @@ use <../libraries/commons.scad>
 use <../libraries/electronics.scad>
 use <../libraries/breadboard.scad>
 include <../configurations/global.scad>
+include <../configurations/openscad.scad>
 
 
 
@@ -28,10 +29,10 @@ module cassette3DPrintPiece(
         render()
             intersection() {
                 scale([
-                    x_size / (svg_x_size / 72 * 25.4),
-                    y_size / (svg_y_size / 72 * 25.4) * 1.01,
-                    1]
-                )
+                    x_size / (svg_x_size / openscad_default_svg_dpi * inch_to_millimeter),
+                    y_size / (svg_y_size / openscad_default_svg_dpi * inch_to_millimeter) * 1.01,
+                    1
+                ])
                     linear_extrude(height = cassette_svg_height)
                         if (cassette_tag) {
                             import("../assets/cassette_2D_tag.svg");
