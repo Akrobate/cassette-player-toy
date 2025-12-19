@@ -1,7 +1,6 @@
 
 use <../assets/cny70/cny70.scad>
-use <../libraries/electronics.scad>
-use <../libraries/breadboard.scad>
+use <../assets/breadboard/breadboard.scad>
 
 include <../configurations/global.scad>
 

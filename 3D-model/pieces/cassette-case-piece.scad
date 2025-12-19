@@ -1,5 +1,5 @@
 use <../libraries/commons.scad>
-use <../libraries/electronics.scad>
+use <../assets/breadboard/breadboard.scad>
 
 use <./subpieces/rounded-pane.scad>
 include <../configurations/global.scad>

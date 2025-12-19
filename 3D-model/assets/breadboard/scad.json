@@ -1,0 +1,9 @@
+{
+  "name": "breadboard",
+  "version": "1.0.0",
+  "description": "Breadboard module",
+  "main": "breadboard.scad",
+  "dependencies": {
+    "he14": "^0.2.0"
+  }
+}

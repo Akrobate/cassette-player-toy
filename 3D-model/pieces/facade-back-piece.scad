@@ -1,6 +1,5 @@
 include <./../configurations/global.scad>
 use <./../libraries/commons.scad>
-use <./../libraries/electronics.scad>
 
 use <./subpieces/rounded-pane.scad>
 

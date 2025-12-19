@@ -1,7 +1,6 @@
 use <./subpieces/rounded-pane.scad>
-
 use <../libraries/commons.scad>
-use <../libraries/electronics.scad>
+
 use <./cassette-case-piece.scad>
 use <./speaker-facade-piece.scad>
 use <../enveloppes/speaker-40mm-throws-enveloppe.scad>
