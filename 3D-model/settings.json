@@ -1,0 +1,7 @@
+{
+    "search.exclude": {
+        "**/openscad_modules": true,
+        "**/dist": true,
+        "**/build": true
+    }
+}

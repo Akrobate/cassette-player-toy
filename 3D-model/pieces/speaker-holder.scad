@@ -1,5 +1,5 @@
 include <./../configurations/global.scad>
-use <./../libraries/commons.scad>
+use <./../openscad_modules/commons/forEachCoord.scad>
 
 use <./subpieces/rounded-pane.scad>
 use <../enveloppes/speaker-40mm-throws-enveloppe.scad>

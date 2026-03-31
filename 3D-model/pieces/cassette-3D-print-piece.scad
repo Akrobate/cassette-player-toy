@@ -1,4 +1,4 @@
-use <../libraries/commons.scad>
+use <../openscad_modules/commons/forEachCoord.scad>
 use <../assets/breadboard/breadboard.scad>
 
 include <../configurations/global.scad>

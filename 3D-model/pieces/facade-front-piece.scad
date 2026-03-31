@@ -1,5 +1,5 @@
 use <./subpieces/rounded-pane.scad>
-use <../libraries/commons.scad>
+use <../openscad_modules/commons/forEachCoord.scad>
 
 use <./cassette-case-piece.scad>
 use <./speaker-facade-piece.scad>
