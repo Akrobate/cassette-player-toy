@@ -1,10 +1,12 @@
 use <../openscad_modules/commons/forEachCoord.scad>
+use <../openscad_modules/housing/roundedPane.scad>
+
+// @move to nodemodules
 use <../assets/breadboard/breadboard.scad>
 
-use <./subpieces/rounded-pane.scad>
 include <../configurations/global.scad>
 
-
+// @todo normalize names filenames
 module cassetteCasePiece(
     cassette_x_size = cassette_x_size,
     cassette_y_size = cassette_y_size,

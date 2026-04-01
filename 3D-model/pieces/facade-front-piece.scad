@@ -1,4 +1,4 @@
-use <./subpieces/rounded-pane.scad>
+use <../openscad_modules/housing/roundedPane.scad>
 use <../openscad_modules/commons/forEachCoord.scad>
 
 use <./cassette-case-piece.scad>

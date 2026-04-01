@@ -1,3 +1,5 @@
+// to remove once refactored
+
 /**
  * getPointSize
  * @returns Point size (mil)
