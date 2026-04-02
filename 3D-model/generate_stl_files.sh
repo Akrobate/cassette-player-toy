@@ -1,17 +1,17 @@
 #!/bin/bash
 
 declare -g PIECES=(
-bolt-join-mother-board-piece
-cassette-3D-print-piece
-cassette-cnc-piece
-facade-corner-piece
+boltJoinMotherBoardPiece
+cassette3DPrintPiece
+cassetteCncPiece
+facadeCornerPiece
 facade-left-piece
-speaker-facade-piece
-cassette-case-piece
-facade-back-piece
-facade-front-piece
-facade-top-piece
-speaker-holder
+speakerFacadePiece
+cassetteCasePiece
+facadeBackPiece
+facadeFrontPiece
+facadeTopPiece
+speakerHolder
 )
 
 # Model generation

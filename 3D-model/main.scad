@@ -6,13 +6,13 @@ use <./assets/speaker40mm/speaker40mm.scad>
 
 use <./assets/breadboard/breadboard.scad>
 
-use <./pieces/cassette-cnc-piece.scad>
-use <./pieces/cassette-3D-print-piece.scad>
-use <./pieces/cassette-case-piece.scad>
-use <./pieces/speaker-facade-piece.scad>
-use <./pieces/speaker-holder.scad>
+use <./pieces/cassetteCncPiece.scad>
+use <./pieces/cassette3DPrintPiece.scad>
+use <./pieces/cassetteCasePiece.scad>
+use <./pieces/speakerFacadePiece.scad>
+use <./pieces/speakerHolder.scad>
 
-use <./pieces/bolt-join-mother-board-piece.scad>
+use <./pieces/boltJoinMotherBoardPiece.scad>
 
 use <./components/mother-board-component.scad>
 use <./components/housing-component.scad>

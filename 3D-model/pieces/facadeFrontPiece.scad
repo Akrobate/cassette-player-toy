@@ -1,8 +1,8 @@
 use <../openscad_modules/housing/roundedPane.scad>
 use <../openscad_modules/commons/forEachCoord.scad>
 
-use <./cassette-case-piece.scad>
-use <./speaker-facade-piece.scad>
+use <./cassetteCasePiece.scad>
+use <./speakerFacadePiece.scad>
 use <../enveloppes/speaker-40mm-throws-enveloppe.scad>
 use <../enveloppes/on-off-button-throw-enveloppe.scad>
 

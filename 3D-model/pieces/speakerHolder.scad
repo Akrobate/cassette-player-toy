@@ -24,9 +24,6 @@ module speakerHolder(
 
     difference() {
 
-        //translate([0, 0, z_size / 2])
-        //roundedPane([x_size, y_size, z_size], r1 = rounded_radius, r2 = rounded_radius);
-
         hull(){
 
             translate([rounded_radius, rounded_radius])

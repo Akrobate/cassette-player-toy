@@ -17,41 +17,41 @@
 
 ## Pièces
 
-### bolt-join-mother-board-piece
-![bolt-join-mother-board-piece](png_files/pieces/bolt-join-mother-board-piece.png)
+### boltJoinMotherBoardPiece
+![boltJoinMotherBoardPiece](png_files/pieces/boltJoinMotherBoardPiece.png)
 
 
 
-### cassette-case-piece
-![cassette-case-piece](png_files/pieces/cassette-case-piece.png)
+### cassetteCasePiece
+![cassetteCasePiece](png_files/pieces/cassetteCasePiece.png)
 
-### facade-back-piece
-![facade-back-piece](png_files/pieces/facade-back-piece.png)
+### facadeBackPiece
+![facadeBackPiece](png_files/pieces/facadeBackPiece.png)
 
-### facade-corner-piece
-![facade-corner-piece](png_files/pieces/facade-corner-piece.png)
+### facadeCornerPiece
+![facadeCornerPiece](png_files/pieces/facadeCornerPiece.png)
 
-### facade-front-piece
-![facade-front-piece](png_files/pieces/facade-front-piece.png)
+### facadeFrontPiece
+![facadeFrontPiece](png_files/pieces/facadeFrontPiece.png)
 
 ### facade-left-piece
 ![facade-left-piece](png_files/pieces/facade-left-piece.png)
 
-### facade-top-piece
-![facade-top-piece](png_files/pieces/facade-top-piece.png)
+### facadeTopPiece
+![facadeTopPiece](png_files/pieces/facadeTopPiece.png)
 
-### speaker-facade-piece
-![speaker-facade-piece](png_files/pieces/speaker-facade-piece.png)
+### speakerFacadePiece
+![speakerFacadePiece](png_files/pieces/speakerFacadePiece.png)
 
-### speaker-holder
-![speaker-holder](png_files/pieces/speaker-holder.png)
+### speakerHolder
+![speakerHolder](png_files/pieces/speakerHolder.png)
 
 
 ## Cassete Pieces
 
-### cassette-3D-print-piece
-![cassette-3D-print-piece](png_files/pieces/cassette-3D-print-piece.png)
+### cassette3DPrintPiece
+![cassette3DPrintPiece](png_files/pieces/cassette3DPrintPiece.png)
 
-### cassette-cnc-piece
-![cassette-cnc-piece](png_files/pieces/cassette-cnc-piece.png)
+### cassetteCncPiece
+![cassetteCncPiece](png_files/pieces/cassetteCncPiece.png)
 
