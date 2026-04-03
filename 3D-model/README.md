@@ -8,11 +8,11 @@
 
 ## Composants
 
-### housing-component
-![housing-component](png_files/components/housing-component.png)
+### housingComponent
+![housingComponent](png_files/components/housingComponent.png)
 
-### mother-board-component
-![mother-board-component](png_files/components/mother-board-component.png)
+### motherBoardComponent
+![motherBoardComponent](png_files/components/motherBoardComponent.png)
 
 
 ## Pièces

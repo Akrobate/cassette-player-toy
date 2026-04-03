@@ -14,8 +14,8 @@ use <./pieces/speakerHolder.scad>
 
 use <./pieces/boltJoinMotherBoardPiece.scad>
 
-use <./components/mother-board-component.scad>
-use <./components/housing-component.scad>
+use <./components/motherBoardComponent.scad>
+use <./components/housingComponent.scad>
 
 
 housingComponent();

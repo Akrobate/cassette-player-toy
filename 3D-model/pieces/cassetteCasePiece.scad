@@ -6,7 +6,6 @@ use <../assets/breadboard/breadboard.scad>
 
 include <../configurations/global.scad>
 
-// @todo normalize names filenames
 module cassetteCasePiece(
     cassette_x_size = cassette_x_size,
     cassette_y_size = cassette_y_size,
