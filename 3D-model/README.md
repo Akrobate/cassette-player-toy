@@ -35,7 +35,7 @@
 ![facadeFrontPiece](png_files/pieces/facadeFrontPiece.png)
 
 ### facade-left-piece
-![facade-left-piece](png_files/pieces/facade-left-piece.png)
+![facade-left-piece](png_files/pieces/facadeLeftPiece.png)
 
 ### facadeTopPiece
 ![facadeTopPiece](png_files/pieces/facadeTopPiece.png)
