@@ -1,8 +1,7 @@
 
 
 
-module batteriesHolder() {
-
+module batteriesHolder4AAA() {
     color("red")
         cube([
             47.2,
@@ -10,3 +9,6 @@ module batteriesHolder() {
             12
         ]);
 }
+
+
+batteriesHolder4AAA();
