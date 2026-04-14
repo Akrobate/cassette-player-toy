@@ -1,7 +1,7 @@
 include <./configurations/global.scad>
 
+use <openscad_modules/battery/battery-holder/batteriesHolder4AAA.scad>
 use <./assets/on-off-button/on-off-button.scad>
-use <./assets/batteries-holder/batteriesHolder4AAA.scad>
 use <./assets/speaker40mm/speaker40mm.scad>
 
 use <./assets/breadboard/breadboard.scad>
@@ -32,7 +32,7 @@ translate([facade_speaker_40mm_coords[0], facade_speaker_40mm_coords[1], 21])
 translate([facade_speaker_40mm_coords[0], facade_speaker_40mm_coords[1], case_external_z_size])
     speaker40mm();
 
-*translate([batteries_holder_coords[0], batteries_holder_coords[1], case_external_panes_thickness])
+translate([batteries_holder_coords[0], batteries_holder_coords[1], case_external_panes_thickness])
     batteriesHolder4AAA();
 
 
