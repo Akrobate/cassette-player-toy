@@ -1,7 +1,7 @@
 include <./configurations/global.scad>
 
 use <openscad_modules/battery/battery-holder/batteriesHolder4AAA.scad>
-use <./assets/on-off-button/on-off-button.scad>
+use <openscad_modules/button/onOffButton/onOffButton.scad>
 use <./assets/speaker40mm/speaker40mm.scad>
 
 use <./assets/breadboard/breadboard.scad>
