@@ -2,9 +2,10 @@ include <./configurations/global.scad>
 
 use <openscad_modules/battery/battery-holder/batteriesHolder4AAA.scad>
 use <openscad_modules/button/onOffButton/onOffButton.scad>
-use <./assets/speaker40mm/speaker40mm.scad>
+use <openscad_modules/breadboard/breadboard.scad>
 
-use <./assets/breadboard/breadboard.scad>
+// @todo move to openscad module
+use <./assets/speaker40mm/speaker40mm.scad>
 
 use <./pieces/cassetteCncPiece.scad>
 use <./pieces/cassette3DPrintPiece.scad>
