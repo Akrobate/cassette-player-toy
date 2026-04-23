@@ -9,6 +9,7 @@
     "breadboard": "https://gitlab.com/openscad-modules/breadboard.git#0.0.1",
     "button": "https://gitlab.com/openscad-modules/button.git#0.0.1",
     "commons": "https://gitlab.com/openscad-modules/commons.git#0.0.1",
-    "housing": "https://gitlab.com/openscad-modules/housing.git#0.0.5"
+    "housing": "https://gitlab.com/openscad-modules/housing.git#0.0.5",
+    "speaker": "https://gitlab.com/openscad-modules/speaker.git#0.0.1"
   }
 }

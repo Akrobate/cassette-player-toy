@@ -1,22 +1,19 @@
-include <./configurations/global.scad>
+include <configurations/global.scad>
 
 use <openscad_modules/battery/battery-holder/batteriesHolder4AAA.scad>
 use <openscad_modules/button/onOffButton/onOffButton.scad>
 use <openscad_modules/breadboard/breadboard.scad>
+use <openscad_modules/speaker/speaker40mm/speaker40mm.scad>
 
-// @todo move to openscad module
-use <./assets/speaker40mm/speaker40mm.scad>
+use <pieces/cassetteCncPiece.scad>
+use <pieces/cassette3DPrintPiece.scad>
+use <pieces/cassetteCasePiece.scad>
+use <pieces/speakerFacadePiece.scad>
+use <pieces/speakerHolder.scad>
+use <pieces/boltJoinMotherBoardPiece.scad>
 
-use <./pieces/cassetteCncPiece.scad>
-use <./pieces/cassette3DPrintPiece.scad>
-use <./pieces/cassetteCasePiece.scad>
-use <./pieces/speakerFacadePiece.scad>
-use <./pieces/speakerHolder.scad>
-
-use <./pieces/boltJoinMotherBoardPiece.scad>
-
-use <./components/motherBoardComponent.scad>
-use <./components/housingComponent.scad>
+use <components/motherBoardComponent.scad>
+use <components/housingComponent.scad>
 
 
 housingComponent();

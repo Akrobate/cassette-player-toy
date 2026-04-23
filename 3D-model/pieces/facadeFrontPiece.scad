@@ -3,7 +3,7 @@ use <../openscad_modules/commons/forEachCoord.scad>
 
 use <./cassetteCasePiece.scad>
 use <./speakerFacadePiece.scad>
-use <../enveloppes/speaker-40mm-throws-enveloppe.scad>
+use <../enveloppes/speaker40mmThrowsEnveloppe.scad>
 use <../enveloppes/on-off-button-throw-enveloppe.scad>
 
 

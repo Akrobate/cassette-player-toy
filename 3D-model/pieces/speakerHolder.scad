@@ -2,7 +2,7 @@ include <./../configurations/global.scad>
 use <./../openscad_modules/commons/forEachCoord.scad>
 
 use <../openscad_modules/housing/roundedPane.scad>
-use <../enveloppes/speaker-40mm-throws-enveloppe.scad>
+use <../enveloppes/speaker40mmThrowsEnveloppe.scad>
 
 /**
  * speakerFacadePiece
