@@ -22,4 +22,11 @@ module boltJoinMotherBoardPiece(
     }
 }
 
+
+/**
+ * @stl
+ * @png
+ * @colorscheme BeforeDawn
+ * @view axes,scales
+ */
 boltJoinMotherBoardPiece();

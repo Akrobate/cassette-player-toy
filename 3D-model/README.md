@@ -20,8 +20,6 @@
 ### boltJoinMotherBoardPiece
 ![boltJoinMotherBoardPiece](png_files/pieces/boltJoinMotherBoardPiece.png)
 
-
-
 ### cassetteCasePiece
 ![cassetteCasePiece](png_files/pieces/cassetteCasePiece.png)
 

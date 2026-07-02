@@ -54,5 +54,9 @@ module cny70set() {
 }
 
 
+/**
+ * @png
+ * @colorscheme BeforeDawn
+ */
 motherBoardComponent();
 

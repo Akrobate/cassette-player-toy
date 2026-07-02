@@ -99,6 +99,11 @@ module facadeFrontPiece(
     }
 }
 
+
+/**
+ * @stl
+ * @png
+ * @colorscheme BeforeDawn
+ * @view axes,scales
+ */
 facadeFrontPiece();
-
-

@@ -22,4 +22,10 @@ module cassetteCncPiece(
 }
 
 
+/**
+ * @stl
+ * @png
+ * @colorscheme BeforeDawn
+ * @view axes,scales
+ */
 cassetteCncPiece();

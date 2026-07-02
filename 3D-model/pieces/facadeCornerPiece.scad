@@ -59,6 +59,12 @@ module facadeCornerPiece(
 }
 
 
+/**
+ * @stl
+ * @png
+ * @colorscheme BeforeDawn
+ * @view axes,scales
+ */
 facadeCornerPiece(
     $fn = 150
 );

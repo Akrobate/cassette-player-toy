@@ -202,7 +202,12 @@ module cassetteCaseThrowsEnveloppe(
 
 
 
-
+/**
+ * @stl
+ * @png
+ * @colorscheme BeforeDawn
+ * @view axes,scales
+ */
 cassetteCasePiece();
 
 *cassetteCaseThrowsEnveloppe();

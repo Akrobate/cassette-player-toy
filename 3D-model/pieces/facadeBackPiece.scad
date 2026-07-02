@@ -47,6 +47,11 @@ module facadeBackPiece(
 
 }
 
+
+/**
+ * @stl
+ * @png
+ * @colorscheme BeforeDawn
+ * @view axes,scales
+ */
 facadeBackPiece();
-
-

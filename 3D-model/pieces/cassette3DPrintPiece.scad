@@ -93,4 +93,10 @@ module cassetteCountour(
 }
 
 
+/**
+ * @stl
+ * @png
+ * @colorscheme BeforeDawn
+ * @view axes,scales
+ */
 cassette3DPrintPiece();

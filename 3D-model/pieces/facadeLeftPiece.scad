@@ -37,4 +37,10 @@ module facadeLeftPiece(
 }
 
 
+/**
+ * @stl
+ * @png
+ * @colorscheme BeforeDawn
+ * @view axes,scales
+ */
 facadeLeftPiece();

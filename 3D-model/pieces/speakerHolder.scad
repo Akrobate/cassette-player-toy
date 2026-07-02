@@ -67,5 +67,10 @@ module speakerFacadePieceFixationThrows(
 }
 
 
-
+/**
+ * @stl
+ * @png
+ * @colorscheme BeforeDawn
+ * @view axes,scales
+ */
 speakerHolder();

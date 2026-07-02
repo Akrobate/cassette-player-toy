@@ -61,5 +61,9 @@ module housingComponent() {
 }
 
 
+/**
+ * @png
+ * @colorscheme BeforeDawn
+ */
 housingComponent();
 
