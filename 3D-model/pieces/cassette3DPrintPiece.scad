@@ -89,7 +89,7 @@ module cassetteCountour(
             [x_size - round_radius, 0 + round_radius],
             [x_size - round_radius, y_size - round_radius]
         ])
-            cylinder(r=round_radius, h=z_size, $fn=100);
+            cylinder(r=round_radius, h=z_size);
 }
 
 
@@ -99,4 +99,4 @@ module cassetteCountour(
  * @colorscheme BeforeDawn
  * @view axes,scales
  */
-cassette3DPrintPiece();
+cassette3DPrintPiece($fn = 250);
