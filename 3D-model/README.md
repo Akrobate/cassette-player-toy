@@ -6,7 +6,7 @@
 ![main](png_files/main.png)
 
 
-## Composants
+## Components
 
 ### housingComponent
 ![housingComponent](png_files/components/housingComponent.png)
